@@ -118,7 +118,7 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  transition: color 250ms var(--timing-function);
+  transition: color 3000ms var(--timing-function);
 }
 
 .header-nav-link {
@@ -130,7 +130,6 @@ img {
 
 .current {
   color: var(--accent-color);
-  transition: color 250ms var(--timing-function);
 }
 
 .current::after {
@@ -142,11 +141,11 @@ img {
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
+  transition: background-color 3000ms var(--timing-function);
 }
 
 .header-contact-link {
   color: var(--add-text-color);
-  /* align-items: center; */
 }
 
 .header-contact-link:hover,
@@ -165,7 +164,7 @@ img {
   height: 12px;
   margin-right: 10px;
   fill: currentColor;
-  transition: fill 1250ms var(--timing-function);
+  transition: fill 4250ms var(--timing-function);
 }
 
 .icon-smartphone {
@@ -173,7 +172,7 @@ img {
   height: 16px;
   margin-right: 10px;
   fill: currentColor;
-  transition: fill 250ms var(--timing-function);
+  transition: fill 4250ms var(--timing-function);
 }
 
 /* hero */
@@ -359,8 +358,8 @@ img {
   height: 44px;
   background-color: var(--bg-color);
   border-radius: 50%;
-  transition: background-color 250ms var(--timing-function),
-    fill 250ms var(--timing-function);
+  transition: background-color 4250ms var(--timing-function),
+    fill 4250ms var(--timing-function);
 }
 
 .team-social-link:focus .team-social-icon,
@@ -382,7 +381,7 @@ img {
 
 .client-icon {
   fill: var(--border-add-color);
-  transition: fill 250ms var(--timing-function),
+  transition: fill 4250ms var(--timing-function),
     border 250ms var(--timing-function);
 }
 
@@ -396,7 +395,7 @@ img {
   background-color: var(--bg-color);
   border: 1px solid var(--border-add-color);
   border-radius: 4px;
-  transition: fill 250ms var(--timing-function),
+  transition: fill 4250ms var(--timing-function),
     border 250ms var(--timing-function);
 }
 
@@ -462,7 +461,7 @@ img {
 }
 
 .contact-footer-link {
-  transition: color 250ms var(--timing-function);
+  transition: color 4250ms var(--timing-function);
 }
 
 .contact-footer-link:hover,
@@ -500,7 +499,7 @@ img {
   height: 44px;
   background-color: rgba(255, 255, 255, 10%);
   border-radius: 50%;
-  transition: fill 250ms var(--timing-function),
+  transition: fill 4250ms var(--timing-function),
     background-color 250ms var(--timing-function);
 }
 
@@ -579,8 +578,8 @@ img {
   padding-right: 22px;
   border: 0;
   border-radius: 4px;
-  transition: color 250ms var(--timing-function),
-    background-color 250ms var(--timing-function),
+  transition: color 4250ms var(--timing-function),
+    background-color 4250ms var(--timing-function),
     box-shadow 250ms var(--timing-function);
 }
 
@@ -628,7 +627,7 @@ img {
 .portfolio-card {
   flex-basis: calc((100% - 30px * var(--grid-column)) / var(--grid-column));
   border: 1px solid #eeeeee;
-  transition: box-shadow 250ms var(--timing-function);
+  transition: box-shadow 4250ms var(--timing-function);
 }
 
 .portfolio-card:focus,
@@ -659,7 +658,6 @@ img {
 .portfolio-link:focus .portfolio-thumb::before,
 .portfolio-link:hover .portfolio-thumb::before {
   transform: translateY(0);
-  /* transition: 2500ms var(--timing-function); */
 }
 
 .portfolio-text {
