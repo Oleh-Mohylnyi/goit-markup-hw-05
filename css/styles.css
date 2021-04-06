@@ -11,6 +11,7 @@
   --border-add-sec-color: #eeeeee;
   --title-font: "Roboto", sans-serif;
   --grid-column: 3;
+  --timing-function: var(--timing-function);
 }
 /* для лого #2196f3 доп цвета  #000  #fff */
 
@@ -117,14 +118,30 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms var(--timing-function);
 }
 
 .header-nav-link {
+  position: relative;
   color: var(--main-text-color);
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .current {
   color: var(--accent-color);
+  transition: color 250ms var(--timing-function);
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .header-contact-link {
@@ -148,6 +165,7 @@ img {
   height: 12px;
   margin-right: 10px;
   fill: currentColor;
+  transition: fill 1250ms var(--timing-function);
 }
 
 .icon-smartphone {
@@ -155,6 +173,7 @@ img {
   height: 16px;
   margin-right: 10px;
   fill: currentColor;
+  transition: fill 250ms var(--timing-function);
 }
 
 /* hero */
@@ -340,6 +359,8 @@ img {
   height: 44px;
   background-color: var(--bg-color);
   border-radius: 50%;
+  transition: background-color 250ms var(--timing-function),
+    fill 250ms var(--timing-function);
 }
 
 .team-social-link:focus .team-social-icon,
@@ -361,6 +382,8 @@ img {
 
 .client-icon {
   fill: var(--border-add-color);
+  transition: fill 250ms var(--timing-function),
+    border 250ms var(--timing-function);
 }
 
 .client-link {
@@ -373,6 +396,8 @@ img {
   background-color: var(--bg-color);
   border: 1px solid var(--border-add-color);
   border-radius: 4px;
+  transition: fill 250ms var(--timing-function),
+    border 250ms var(--timing-function);
 }
 
 .client-list {
@@ -424,6 +449,7 @@ img {
 
 .contact-footer-color {
   color: var(--bg-color);
+  transition: 250ms var(--timing-function);
 }
 
 .contact-footer-link {
@@ -433,6 +459,10 @@ img {
 .contact-footer-color:hover,
 .contact-footer-color:focus {
   color: var(--accent-color);
+}
+
+.contact-footer-link {
+  transition: color 250ms var(--timing-function);
 }
 
 .contact-footer-link:hover,
@@ -470,6 +500,8 @@ img {
   height: 44px;
   background-color: rgba(255, 255, 255, 10%);
   border-radius: 50%;
+  transition: fill 250ms var(--timing-function),
+    background-color 250ms var(--timing-function);
 }
 
 .footer-social-link:focus .team-social-icon,
@@ -480,6 +512,46 @@ img {
 .footer-social-link:focus,
 .footer-social-link:hover {
   background-color: var(--accent-color);
+}
+
+/* modal */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  display: flex;
+  justify-content: end;
+  background-color: var(--bg-color);
+  border-radius: 4px;
+}
+
+.close-button {
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* portfolio */
@@ -507,6 +579,9 @@ img {
   padding-right: 22px;
   border: 0;
   border-radius: 4px;
+  transition: color 250ms var(--timing-function),
+    background-color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .portfolio-filter-item + .portfolio-filter-item {
@@ -553,9 +628,48 @@ img {
 .portfolio-card {
   flex-basis: calc((100% - 30px * var(--grid-column)) / var(--grid-column));
   border: 1px solid #eeeeee;
+  transition: box-shadow 250ms var(--timing-function);
 }
 
+.portfolio-card:focus,
 .portfolio-card:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-thumb::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 2500ms var(--timing-function);
+  /* z-index: 10; */
+}
+
+.portfolio-link:focus .portfolio-thumb::before,
+.portfolio-link:hover .portfolio-thumb::before {
+  transform: translateY(0);
+  /* transition: 2500ms var(--timing-function); */
+}
+
+.portfolio-text {
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--bg-color);
+  margin: 63px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* z-index: 20; */
 }
